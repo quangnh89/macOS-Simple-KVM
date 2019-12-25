@@ -9,6 +9,8 @@ print_usage() {
     echo
     echo "Usage: $0"
     echo
+    echo " -a, --capitan       Fetch El Capitan media."
+    echo " -i, --sierra        Fetch Sierra media."
     echo " -s, --high-sierra   Fetch High Sierra media."
     echo " -m, --mojave        Fetch Mojave media."
     echo " -c, --catalina      Fetch Catalina media."
@@ -24,6 +26,12 @@ argument="$1"
 case $argument in
     -h|--help)
         print_usage
+        ;;
+    -a|--capitan)
+        "$TOOLS/FetchMacOS/fetch.sh" -v 10.11 || exit 1;
+        ;;
+    -i|--sierra)
+        "$TOOLS/FetchMacOS/fetch.sh" -v 10.12 || exit 1;
         ;;
     -s|--high-sierra)
         "$TOOLS/FetchMacOS/fetch.sh" -v 10.13 || exit 1;
